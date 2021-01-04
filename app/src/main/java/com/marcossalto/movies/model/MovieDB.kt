@@ -3,6 +3,7 @@ package com.marcossalto.movies
 /**
  * Created by Marcos Salto on 04/01/2021.
  */
+import com.marcossalto.movies.model.MovieDbService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.marcossalto.movies
+package com.marcossalto.movies.ui
 
 /**
  * Created by Marcos Salto on 04/01/2021.
@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.marcossalto.movies.Movie
+import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ViewMovieBinding
+import com.marcossalto.movies.inflate
 import kotlin.properties.Delegates
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {

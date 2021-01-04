@@ -1,4 +1,4 @@
-package com.marcossalto.movies
+package com.marcossalto.movies.ui
 
 /**
  * Created by Marcos Salto on 04/01/2021.
@@ -6,6 +6,8 @@ package com.marcossalto.movies
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.marcossalto.movies.MovieDb
+import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
