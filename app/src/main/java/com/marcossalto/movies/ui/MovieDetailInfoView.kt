@@ -1,0 +1,39 @@
+package com.marcossalto.movies.ui
+
+/**
+ * Created by Marcos Salto on 04/01/2021.
+ */
+import android.content.Context
+import android.util.AttributeSet
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.text.bold
+import androidx.core.text.buildSpannedString
+import com.marcossalto.movies.model.Movie
+
+class MovieDetailInfoView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AppCompatTextView(context, attrs, defStyleAttr) {
+
+    fun setMovie(movie: Movie) = with(movie) {
+        text = buildSpannedString {
+
+            bold { append("Original language: ") }
+            appendLine(originalLanguage)
+
+            bold { append("Original title: ") }
+            appendLine(originalTitle)
+
+            bold { append("Release date: ") }
+            appendLine(releaseDate)
+
+            bold { append("Popularity: ") }
+            appendLine(popularity.toString())
+
+            bold { append("Vote Average: ") }
+            append(voteAverage.toString())
+        }
+    }
+}
