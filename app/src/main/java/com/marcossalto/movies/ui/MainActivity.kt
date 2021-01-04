@@ -5,15 +5,13 @@ package com.marcossalto.movies.ui
  */
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.marcossalto.movies.MovieDb
 import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import com.marcossalto.movies.ui.common.CoroutineScopeActivity
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : CoroutineScopeActivity() {
 
     private val adapter = MoviesAdapter()
 
@@ -24,8 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.recycler.adapter = adapter
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val movies = MovieDb.service.listPopularMoviesAsync(getString(R.string.api_key))
+        launch {
+            val movies = MovieDb.service
+                .listPopularMoviesAsync(getString(R.string.api_key))
             adapter.movies = movies.results
         }
     }
