@@ -1,10 +1,12 @@
-package com.marcossalto.movies
+package com.marcossalto.movies.ui
 
 /**
  * Created by Marcos Salto on 04/01/2021.
  */
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,3 +25,11 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = true): 
 fun ImageView.loadUrl(url: String) {
     Glide.with(context).load(url).into(this)
 }
+
+inline fun <reified T : Activity> Context.intentFor(body: Intent.() -> Unit): Intent =
+    Intent(this, T::class.java).apply(body)
+
+inline fun <reified T : Activity> Context.startActivity(body: Intent.() -> Unit) {
+    startActivity(intentFor<T>(body))
+}
+

@@ -3,7 +3,6 @@ package com.marcossalto.movies.model
 /**
  * Created by Marcos Salto on 04/01/2021.
  */
-import com.marcossalto.movies.MovieDbResult
 import retrofit2.http.GET
 import retrofit2.http.Query
 

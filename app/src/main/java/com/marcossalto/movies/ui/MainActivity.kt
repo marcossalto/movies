@@ -15,9 +15,9 @@ import com.karumi.dexter.Dexter
 import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.single.BasePermissionListener
-import com.marcossalto.movies.MovieDb
 import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ActivityMainBinding
+import com.marcossalto.movies.model.MovieDb
 import com.marcossalto.movies.ui.common.CoroutineScopeActivity
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -27,7 +27,11 @@ class MainActivity : CoroutineScopeActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    private val adapter = MoviesAdapter()
+    private val adapter = MoviesAdapter {
+        startActivity<DetailActivity> {
+            putExtra(DetailActivity.MOVIE, it)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
