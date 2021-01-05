@@ -1,18 +1,16 @@
-package com.marcossalto.movies.ui.main
+    package com.marcossalto.movies.ui.main
 
 /**
  * Created by Marcos Salto on 05/01/2021.
  */
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.marcossalto.movies.model.server.Movie
+import com.marcossalto.movies.model.database.Movie
 import com.marcossalto.movies.model.server.MoviesRepository
-import com.marcossalto.movies.ui.common.Scope
+import com.marcossalto.movies.ui.common.ScopedViewModel
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val moviesRepository: MoviesRepository) : ViewModel(),
-    Scope by Scope.Impl() {
+class MainViewModel(private val moviesRepository: MoviesRepository) : ScopedViewModel() {
 
     private val _model = MutableLiveData<UiModel>()
     val model: LiveData<UiModel>
@@ -39,7 +37,7 @@ class MainViewModel(private val moviesRepository: MoviesRepository) : ViewModel(
     fun onCoarsePermissionRequested() {
         launch {
             _model.value = UiModel.Loading
-            _model.value = UiModel.Content(moviesRepository.findPopularMovies().results)
+            _model.value = UiModel.Content(moviesRepository.findPopularMovies())
         }
     }
 

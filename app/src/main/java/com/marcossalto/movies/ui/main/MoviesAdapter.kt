@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ViewMovieBinding
-import com.marcossalto.movies.model.server.Movie
+import com.marcossalto.movies.model.database.Movie
 import com.marcossalto.movies.ui.common.basicDiffUtil
 import com.marcossalto.movies.ui.common.inflate
 import com.marcossalto.movies.ui.common.loadUrl

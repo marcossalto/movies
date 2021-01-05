@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import com.marcossalto.movies.PermissionRequester
 import com.marcossalto.movies.databinding.ActivityMainBinding
 import com.marcossalto.movies.model.server.MoviesRepository
+import com.marcossalto.movies.ui.common.app
 import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.startActivity
 import com.marcossalto.movies.ui.detail.DetailActivity
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = getViewModel { MainViewModel(MoviesRepository(application)) }
+        viewModel = getViewModel { MainViewModel(MoviesRepository(app)) }
 
         adapter = MoviesAdapter(viewModel::onMovieClicked)
         binding.recycler.adapter = adapter
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         when (model) {
             is UiModel.Content -> adapter.movies = model.movies
             is UiModel.Navigation -> startActivity<DetailActivity> {
-                putExtra(DetailActivity.MOVIE, model.movie)
+                putExtra(DetailActivity.MOVIE, model.movie.id)
             }
             UiModel.RequestLocationPermission -> coarsePermissionRequester.request {
                 viewModel.onCoarsePermissionRequested()
