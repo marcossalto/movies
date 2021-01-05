@@ -5,6 +5,7 @@ package com.marcossalto.movies.ui.main
  */
 
 import android.os.Bundle
+import android.view.View
 import com.marcossalto.movies.databinding.ActivityMainBinding
 import com.marcossalto.movies.model.MoviesRepository
 import com.marcossalto.movies.ui.common.CoroutineScopeActivity
@@ -24,13 +25,16 @@ class MainActivity : CoroutineScopeActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        with(ActivityMainBinding.inflate(layoutInflater)) {
+            setContentView(root)
 
-        binding.recycler.adapter = adapter
+            recycler.adapter = adapter
 
-        launch {
-            adapter.movies = moviesRepository.findPopularMovies().results
+            launch {
+                progress.visibility = View.VISIBLE
+                adapter.movies = moviesRepository.findPopularMovies().results
+                progress.visibility = View.GONE
+            }
         }
     }
 }
