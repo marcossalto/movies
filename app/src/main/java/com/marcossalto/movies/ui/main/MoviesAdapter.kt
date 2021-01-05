@@ -1,4 +1,4 @@
-package com.marcossalto.movies.ui
+package com.marcossalto.movies.ui.main
 
 /**
  * Created by Marcos Salto on 04/01/2021.
@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ViewMovieBinding
 import com.marcossalto.movies.model.Movie
+import com.marcossalto.movies.ui.common.basicDiffUtil
+import com.marcossalto.movies.ui.common.inflate
+import com.marcossalto.movies.ui.common.loadUrl
 
 class MoviesAdapter(private val listener: (Movie) -> Unit) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {

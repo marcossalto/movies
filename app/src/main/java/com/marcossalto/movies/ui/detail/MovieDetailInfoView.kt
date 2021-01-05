@@ -1,11 +1,10 @@
-package com.marcossalto.movies.ui
+package com.marcossalto.movies.ui.detail
 
 /**
  * Created by Marcos Salto on 04/01/2021.
  */
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString

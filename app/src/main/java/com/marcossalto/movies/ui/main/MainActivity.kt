@@ -1,4 +1,4 @@
-package com.marcossalto.movies.ui
+package com.marcossalto.movies.ui.main
 
 /**
  * Created by Marcos Salto on 04/01/2021.
@@ -8,6 +8,8 @@ import android.os.Bundle
 import com.marcossalto.movies.databinding.ActivityMainBinding
 import com.marcossalto.movies.model.MoviesRepository
 import com.marcossalto.movies.ui.common.CoroutineScopeActivity
+import com.marcossalto.movies.ui.common.startActivity
+import com.marcossalto.movies.ui.detail.DetailActivity
 import kotlinx.coroutines.launch
 
 class MainActivity : CoroutineScopeActivity() {

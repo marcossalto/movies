@@ -1,4 +1,4 @@
-package com.marcossalto.movies.ui
+package com.marcossalto.movies.ui.common
 
 /**
  * Created by Marcos Salto on 04/01/2021.
@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView

@@ -1,4 +1,4 @@
-package com.marcossalto.movies.ui
+package com.marcossalto.movies.ui.detail
 
 /**
  * Created by Marcos Salto on 04/01/2021.
@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.marcossalto.movies.databinding.ActivityDetailBinding
 import com.marcossalto.movies.model.Movie
+import com.marcossalto.movies.ui.common.loadUrl
 
 class DetailActivity : AppCompatActivity() {
 
