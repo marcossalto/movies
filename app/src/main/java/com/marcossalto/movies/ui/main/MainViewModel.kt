@@ -25,6 +25,7 @@ class MainViewModel(private val moviesRepository: MoviesRepository) : ViewModel(
         object Loading : UiModel()
         class Content(val movies: List<Movie>) : UiModel()
         class Navigation(val movie: Movie) : UiModel()
+        object RequestLocationPermission : UiModel()
     }
 
     init {
@@ -32,6 +33,10 @@ class MainViewModel(private val moviesRepository: MoviesRepository) : ViewModel(
     }
 
     private fun refresh() {
+        _model.value = UiModel.RequestLocationPermission
+    }
+
+    fun onCoarsePermissionRequested() {
         launch {
             _model.value = UiModel.Loading
             _model.value = UiModel.Content(moviesRepository.findPopularMovies().results)
