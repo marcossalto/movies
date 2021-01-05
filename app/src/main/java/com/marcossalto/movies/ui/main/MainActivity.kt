@@ -8,10 +8,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.marcossalto.movies.databinding.ActivityMainBinding
 import com.marcossalto.movies.model.MoviesRepository
+import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.startActivity
 import com.marcossalto.movies.ui.detail.DetailActivity
 import com.marcossalto.movies.ui.main.MainViewModel.UiModel
@@ -27,10 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(
-            this,
-            MainViewModelFactory(MoviesRepository(this))
-        ).get()
+        viewModel = getViewModel { MainViewModel(MoviesRepository(this)) }
 
         adapter = MoviesAdapter(viewModel::onMovieClicked)
         binding.recycler.adapter = adapter

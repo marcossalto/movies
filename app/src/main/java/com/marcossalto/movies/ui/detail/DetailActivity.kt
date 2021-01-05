@@ -7,10 +7,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.marcossalto.movies.databinding.ActivityDetailBinding
 import com.marcossalto.movies.model.Movie
+import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.loadUrl
 
 class DetailActivity : AppCompatActivity() {
@@ -31,10 +30,7 @@ class DetailActivity : AppCompatActivity() {
         val movie: Movie = intent.getParcelableExtra(MOVIE)
             ?: throw (IllegalStateException("Movie not found"))
 
-        viewModel = ViewModelProvider(
-            this,
-            DetailViewModelFactory(movie)
-        ).get()
+        viewModel = getViewModel { DetailViewModel(movie) }
 
         viewModel.model.observe(this, Observer(::updateUi))
     }
