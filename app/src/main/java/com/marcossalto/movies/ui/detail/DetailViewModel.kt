@@ -6,7 +6,7 @@ package com.marcossalto.movies.ui.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.marcossalto.movies.model.Movie
+import com.marcossalto.movies.model.server.Movie
 
 class DetailViewModel(private val movie: Movie) : ViewModel() {
 

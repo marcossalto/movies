@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.marcossalto.movies.databinding.ActivityDetailBinding
-import com.marcossalto.movies.model.Movie
+import com.marcossalto.movies.model.server.Movie
 import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.loadUrl
 

@@ -6,8 +6,8 @@ package com.marcossalto.movies.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.marcossalto.movies.model.Movie
-import com.marcossalto.movies.model.MoviesRepository
+import com.marcossalto.movies.model.server.Movie
+import com.marcossalto.movies.model.server.MoviesRepository
 import com.marcossalto.movies.ui.common.Scope
 import kotlinx.coroutines.launch
 

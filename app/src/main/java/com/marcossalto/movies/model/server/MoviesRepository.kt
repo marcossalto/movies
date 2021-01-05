@@ -1,10 +1,11 @@
-package com.marcossalto.movies.model
+package com.marcossalto.movies.model.server
 
 /**
  * Created by Marcos Salto on 04/01/2021.
  */
 import android.app.Application
 import com.marcossalto.movies.R
+import com.marcossalto.movies.model.RegionRepository
 
 class MoviesRepository(application: Application) {
 

@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
-import com.marcossalto.movies.model.Movie
+import com.marcossalto.movies.model.server.Movie
 
 class MovieDetailInfoView @JvmOverloads constructor(
     context: Context,

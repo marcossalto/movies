@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.marcossalto.movies.PermissionRequester
 import com.marcossalto.movies.databinding.ActivityMainBinding
-import com.marcossalto.movies.model.MoviesRepository
+import com.marcossalto.movies.model.server.MoviesRepository
 import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.startActivity
 import com.marcossalto.movies.ui.detail.DetailActivity
