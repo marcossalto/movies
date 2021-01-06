@@ -1,12 +1,12 @@
-package com.marcossalto.movies.model.database
+package com.marcossalto.movies.data.database
 
 /**
  * Created by Marcos Salto on 06/01/2021.
  */
 import com.marcossalto.data.source.LocalDataSource
 import com.marcossalto.domain.Movie
-import com.marcossalto.movies.model.toDomainMovie
-import com.marcossalto.movies.model.toRoomMovie
+import com.marcossalto.movies.data.toDomainMovie
+import com.marcossalto.movies.data.toRoomMovie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

@@ -12,10 +12,10 @@ import com.marcossalto.data.repository.MoviesRepository
 import com.marcossalto.data.repository.RegionRepository
 import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ActivityDetailBinding
-import com.marcossalto.movies.model.AndroidPermissionChecker
-import com.marcossalto.movies.model.PlayServicesLocationDataSource
-import com.marcossalto.movies.model.database.RoomDataSource
-import com.marcossalto.movies.model.server.MovieDbDataSource
+import com.marcossalto.movies.data.AndroidPermissionChecker
+import com.marcossalto.movies.data.PlayServicesLocationDataSource
+import com.marcossalto.movies.data.database.RoomDataSource
+import com.marcossalto.movies.data.server.MovieDbDataSource
 import com.marcossalto.movies.ui.common.app
 import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.loadUrl

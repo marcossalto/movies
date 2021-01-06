@@ -5,7 +5,7 @@ package com.marcossalto.movies
  */
 import android.app.Application
 import androidx.room.Room
-import com.marcossalto.movies.model.database.MovieDatabase
+import com.marcossalto.movies.data.database.MovieDatabase
 
 class MoviesApp : Application() {
 

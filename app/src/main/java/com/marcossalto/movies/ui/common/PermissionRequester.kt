@@ -1,4 +1,4 @@
-package com.marcossalto.movies
+package com.marcossalto.movies.ui.common
 
 import android.app.Activity
 import com.karumi.dexter.Dexter

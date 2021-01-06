@@ -1,8 +1,8 @@
-package com.marcossalto.movies.model
+package com.marcossalto.movies.data
 
 import com.marcossalto.domain.Movie
-import com.marcossalto.movies.model.database.Movie as DomainMovie
-import com.marcossalto.movies.model.server.Movie as ServerMovie
+import com.marcossalto.movies.data.database.Movie as DomainMovie
+import com.marcossalto.movies.data.server.Movie as ServerMovie
 
 /**
  * Created by Marcos Salto on 06/01/2021.

@@ -1,4 +1,4 @@
-package com.marcossalto.movies.model.database
+package com.marcossalto.movies.data.database
 
 /**
  * Created by Marcos Salto on 05/01/2021.

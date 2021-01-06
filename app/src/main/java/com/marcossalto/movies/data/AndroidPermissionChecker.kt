@@ -1,4 +1,4 @@
-package com.marcossalto.movies.model
+package com.marcossalto.movies.data
 
 import android.Manifest
 import android.app.Application
