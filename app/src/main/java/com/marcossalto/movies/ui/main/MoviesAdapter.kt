@@ -6,12 +6,12 @@ package com.marcossalto.movies.ui.main
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.marcossalto.movies.R
+import com.marcossalto.domain.Movie
 import com.marcossalto.movies.databinding.ViewMovieBinding
-import com.marcossalto.movies.model.database.Movie
 import com.marcossalto.movies.ui.common.basicDiffUtil
 import com.marcossalto.movies.ui.common.inflate
 import com.marcossalto.movies.ui.common.loadUrl
+import com.marcossalto.movies.R
 
 class MoviesAdapter(private val listener: (Movie) -> Unit) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {

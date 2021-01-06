@@ -5,12 +5,12 @@
  */
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.marcossalto.movies.model.database.Movie
-import com.marcossalto.movies.model.server.MoviesRepository
+import com.marcossalto.domain.Movie
 import com.marcossalto.movies.ui.common.ScopedViewModel
+import com.marcossalto.usecases.GetPopularMovies
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val moviesRepository: MoviesRepository) : ScopedViewModel() {
+class MainViewModel(private val getPopularMovies: GetPopularMovies) : ScopedViewModel() {
 
     private val _model = MutableLiveData<UiModel>()
     val model: LiveData<UiModel>
@@ -37,7 +37,7 @@ class MainViewModel(private val moviesRepository: MoviesRepository) : ScopedView
     fun onCoarsePermissionRequested() {
         launch {
             _model.value = UiModel.Loading
-            _model.value = UiModel.Content(moviesRepository.findPopularMovies())
+            _model.value = UiModel.Content(getPopularMovies.invoke())
         }
     }
 

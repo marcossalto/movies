@@ -9,14 +9,21 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.marcossalto.data.repository.MoviesRepository
+import com.marcossalto.data.repository.RegionRepository
 import com.marcossalto.movies.PermissionRequester
+import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ActivityMainBinding
-import com.marcossalto.movies.model.server.MoviesRepository
+import com.marcossalto.movies.model.AndroidPermissionChecker
+import com.marcossalto.movies.model.PlayServicesLocationDataSource
+import com.marcossalto.movies.model.database.RoomDataSource
+import com.marcossalto.movies.model.server.MovieDbDataSource
 import com.marcossalto.movies.ui.common.app
 import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.startActivity
 import com.marcossalto.movies.ui.detail.DetailActivity
 import com.marcossalto.movies.ui.main.MainViewModel.UiModel
+import com.marcossalto.usecases.GetPopularMovies
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +37,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = getViewModel { MainViewModel(MoviesRepository(app)) }
+        viewModel = getViewModel {
+            MainViewModel(
+                GetPopularMovies(
+                    MoviesRepository(
+                        RoomDataSource(app.db),
+                        MovieDbDataSource(),
+                        RegionRepository(
+                            PlayServicesLocationDataSource(app),
+                            AndroidPermissionChecker(app)
+                        ),
+                        app.getString(R.string.api_key)
+                    )
+                )
+            )
+        }
 
         adapter = MoviesAdapter(viewModel::onMovieClicked)
         binding.recycler.adapter = adapter

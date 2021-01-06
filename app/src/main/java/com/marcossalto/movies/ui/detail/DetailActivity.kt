@@ -8,12 +8,19 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import com.marcossalto.data.repository.MoviesRepository
+import com.marcossalto.data.repository.RegionRepository
 import com.marcossalto.movies.R
 import com.marcossalto.movies.databinding.ActivityDetailBinding
-import com.marcossalto.movies.model.server.MoviesRepository
+import com.marcossalto.movies.model.AndroidPermissionChecker
+import com.marcossalto.movies.model.PlayServicesLocationDataSource
+import com.marcossalto.movies.model.database.RoomDataSource
+import com.marcossalto.movies.model.server.MovieDbDataSource
 import com.marcossalto.movies.ui.common.app
 import com.marcossalto.movies.ui.common.getViewModel
 import com.marcossalto.movies.ui.common.loadUrl
+import com.marcossalto.usecases.FindMovieById
+import com.marcossalto.usecases.ToggleMovieFavorite
 
 class DetailActivity : AppCompatActivity() {
 
@@ -31,7 +38,21 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel = getViewModel {
-            DetailViewModel(intent.getIntExtra(MOVIE, -1), MoviesRepository(app))
+            val moviesRepository = MoviesRepository(
+                RoomDataSource(app.db),
+                MovieDbDataSource(),
+                RegionRepository(
+                    PlayServicesLocationDataSource(app),
+                    AndroidPermissionChecker(app)
+                ),
+                app.getString(R.string.api_key)
+            )
+
+            DetailViewModel(
+                intent.getIntExtra(MOVIE, -1),
+                FindMovieById(moviesRepository),
+                ToggleMovieFavorite(moviesRepository)
+            )
         }
 
         viewModel.model.observe(this, Observer(::updateUi))
